@@ -4,46 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Music Generator</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi"></script>
 </head>
 <body>
 
 <div class="container">
-    <h1>🎵 AI Music Generation</h1>
 
+    <h1>🎵 AI Music Generation using LSTM</h1>
+
+    <!-- Dataset -->
     <div class="card">
         <h2>1. Dataset Collection</h2>
-        <input type="file" id="midiFiles" multiple accept=".mid,.midi">
-        <p id="fileCount">No files selected</p>
+
+        <input
+            type="file"
+            id="midiFiles"
+            multiple
+            accept=".mid,.midi"
+        >
+
+        <p id="fileCount">
+            No MIDI files selected
+        </p>
     </div>
 
+    <!-- Preprocessing -->
     <div class="card">
+
         <h2>2. Preprocessing</h2>
-        <button id="preprocessBtn">Preprocess Notes</button>
+
+        <button id="preprocessBtn">
+            Preprocess Dataset
+        </button>
+
         <div id="preprocessResult"></div>
+
     </div>
 
+    <!-- Training -->
     <div class="card">
-        <h2>3. Train AI Model</h2>
-        <button id="trainBtn">Train LSTM Model</button>
+
+        <h2>3. Train Model</h2>
+
+        <button id="trainBtn">
+            Train LSTM
+        </button>
+
         <div class="progress-container">
-            <div class="progress-bar" id="trainProgress"></div>
+            <div
+                id="trainProgress"
+                class="progress-bar">
+            </div>
         </div>
+
         <p id="trainingStatus"></p>
+
     </div>
 
+    <!-- Generation -->
     <div class="card">
+
         <h2>4. Generate Music</h2>
-        <button id="generateBtn">Generate Sequence</button>
-        <textarea id="generatedMusic" rows="8"></textarea>
+
+        <button id="generateBtn">
+            Generate Sequence
+        </button>
+
+        <textarea
+            id="generatedMusic"
+            rows="8"
+            readonly>
+        </textarea>
+
     </div>
 
+    <!-- Export -->
     <div class="card">
+
         <h2>5. Export MIDI</h2>
-        <button id="downloadBtn">Download MIDI</button>
+
+        <button id="downloadBtn">
+            Download MIDI
+        </button>
+
     </div>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
