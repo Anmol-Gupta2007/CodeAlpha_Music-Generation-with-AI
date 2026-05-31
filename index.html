@@ -1,96 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Music Generator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>AI Music Generator</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi"></script>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>🎵 AI Music Generation using LSTM</h1>
+<h1>🎵 AI Music Generation</h1>
 
-    <!-- Dataset -->
-    <div class="card">
-        <h2>1. Dataset Collection</h2>
+<div class="card">
+<h2>1. Dataset Collection</h2>
 
-        <input
-            type="file"
-            id="midiFiles"
-            multiple
-            accept=".mid,.midi"
-        >
+<input
+type="file"
+id="midiFiles"
+multiple
+accept=".mid,.midi">
 
-        <p id="fileCount">
-            No MIDI files selected
-        </p>
-    </div>
+<p id="fileCount">
+No MIDI files selected
+</p>
+</div>
 
-    <!-- Preprocessing -->
-    <div class="card">
+<div class="card">
+<h2>2. Preprocessing</h2>
 
-        <h2>2. Preprocessing</h2>
+<button id="preprocessBtn">
+Preprocess Dataset
+</button>
 
-        <button id="preprocessBtn">
-            Preprocess Dataset
-        </button>
+<div id="preprocessResult"></div>
+</div>
 
-        <div id="preprocessResult"></div>
+<div class="card">
+<h2>3. Train Model</h2>
 
-    </div>
+<button id="trainBtn">
+Train LSTM
+</button>
 
-    <!-- Training -->
-    <div class="card">
+<div class="progress-container">
+<div id="trainProgress" class="progress-bar"></div>
+</div>
 
-        <h2>3. Train Model</h2>
+<p id="trainingStatus"></p>
+</div>
 
-        <button id="trainBtn">
-            Train LSTM
-        </button>
+<div class="card">
+<h2>4. Generate Music</h2>
 
-        <div class="progress-container">
-            <div
-                id="trainProgress"
-                class="progress-bar">
-            </div>
-        </div>
+<button id="generateBtn">
+Generate Sequence
+</button>
 
-        <p id="trainingStatus"></p>
+<textarea
+id="generatedMusic"
+rows="8"
+readonly>
+</textarea>
+</div>
 
-    </div>
+<div class="card">
+<h2>5. Audio Preview</h2>
 
-    <!-- Generation -->
-    <div class="card">
+<audio
+id="audioPlayer"
+controls>
+</audio>
+</div>
 
-        <h2>4. Generate Music</h2>
+<div class="card">
+<h2>6. Download MP3</h2>
 
-        <button id="generateBtn">
-            Generate Sequence
-        </button>
-
-        <textarea
-            id="generatedMusic"
-            rows="8"
-            readonly>
-        </textarea>
-
-    </div>
-
-    <!-- Export -->
-    <div class="card">
-
-        <h2>5. Export MIDI</h2>
-
-        <button id="downloadBtn">
-            Download MIDI
-        </button>
-
-    </div>
+<button id="downloadBtn">
+Download MP3
+</button>
+</div>
 
 </div>
 
