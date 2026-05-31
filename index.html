@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎵 AI Music Generation</h1>
+
+    <div class="card">
+        <h2>1. Dataset Collection</h2>
+        <input type="file" id="midiFiles" multiple accept=".mid,.midi">
+        <p id="fileCount">No files selected</p>
+    </div>
+
+    <div class="card">
+        <h2>2. Preprocessing</h2>
+        <button id="preprocessBtn">Preprocess Notes</button>
+        <div id="preprocessResult"></div>
+    </div>
+
+    <div class="card">
+        <h2>3. Train AI Model</h2>
+        <button id="trainBtn">Train LSTM Model</button>
+        <div class="progress-container">
+            <div class="progress-bar" id="trainProgress"></div>
+        </div>
+        <p id="trainingStatus"></p>
+    </div>
+
+    <div class="card">
+        <h2>4. Generate Music</h2>
+        <button id="generateBtn">Generate Sequence</button>
+        <textarea id="generatedMusic" rows="8"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>5. Export MIDI</h2>
+        <button id="downloadBtn">Download MIDI</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
